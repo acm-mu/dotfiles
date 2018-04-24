@@ -1,0 +1,30 @@
+#!/bin/bash
+clear
+
+# make sure we extglob
+shopt -s extglob
+shopt -s globstar
+shopt -s nullglob
+shopt -s dotglob
+
+# shortcut to all DOTFILES
+export DOTFILES=$HOME/.dotfiles
+export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/lib64/ccache"
+
+# your default editor
+export EDITOR='vim'
+
+#all all bash files
+export config_files=($DOTFILES/!(zsh)/!(path|install).sh)
+export path_files=($DOTFILES/!(zsh)/path.sh)
+
+# load the path files
+for file in ${path_files[@]}; do
+  source "$file"
+done
+
+# load everything else
+for file in ${config_files[@]}; do
+    source "$file"
+done
+

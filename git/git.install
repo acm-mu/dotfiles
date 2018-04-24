@@ -1,0 +1,3 @@
+# Don't ask ssh password all the time
+git config --global credential.helper cache
+

@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+require 'thor'
+
+# Main CLI APP
+class App < Thor
+  include Thor::Actions
+
+  # Sets the source root
+  def self.source_root
+    File.dirname(__FILE__)
+  end
+
+  method_option :glob, type: :array, required: true
+  desc 'all', 'Link all files into the home bin director'
+  def all
+    options[:glob].each do |file|
+      one(file)
+    end
+  end
+
+  option :name
+  desc 'one [FILE]', 'Links the file into $HOME/bin'
+  def one(file)
+    file = "#{`pwd`.chomp}/#{file}"
+
+    title = options[:name] ? options[:name] : File.basename(file)
+
+    add_link "#{ENV['HOME']}/bin/#{title}", file
+  end
+end
+
+App.start
