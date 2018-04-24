@@ -1,9 +1,4 @@
-# tomlazars dotfiles
-
-![Powered by Antibody][ab]
-
-
-This is my personal set of dotfile customizations. Designed to be able to run on any of my servers no matter the distro or installed applications.
+# ACM DOTFILES
 
 Setup is easy just run `script/bootstrap` to install all the symlink files.
 
@@ -12,7 +7,7 @@ No real requirements that I know of outside the basics, I as I get this on more 
 ## Thanks
 
 - @caarlos0, lots of the original zshrc and bashrc are inspired by his dotfiles along with bootstrap.
-
+- @tomlazar, he is great!
 
 
 ## License
