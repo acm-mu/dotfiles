@@ -9,6 +9,8 @@ shopt -s dotglob
 
 # shortcut to all DOTFILES
 export DOTFILES=$HOME/.dotfiles
+
+# reset  PATH, fixes minor bug where path continues to build upon itself
 export PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/lib64/ccache"
 
 # your default editor
@@ -28,3 +30,5 @@ for file in ${config_files[@]}; do
     source "$file"
 done
 
+# source a localrc folder
+[[ -f ~/.localrc ]] && source $_
